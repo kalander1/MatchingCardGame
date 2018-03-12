@@ -1,3 +1,8 @@
+/*
+*  Andre Reano 101075780
+*  Taha Saleem 100803048
+* */
+
 package com.example.tahasaleem.midterm;
 
 import android.support.v7.app.AlertDialog;
@@ -231,7 +236,7 @@ public class MainActivity extends AppCompatActivity
     {
         for (int i = 0; i < numCards ; i++)
         {
-            
+
         }
     }
 }
