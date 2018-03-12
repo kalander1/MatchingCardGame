@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context="com.example.tahasaleem.midterm.MainActivity">
 
+<<<<<<< HEAD
+=======
     <ImageButton
         android:id="@+id/card1"
         android:layout_width="wrap_content"
@@ -309,4 +311,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.050000012" />
 
+>>>>>>> 69ff4e092d86c79733feb2327fd80c8eb7d58851
 </android.support.constraint.ConstraintLayout>

@@ -1,14 +1,43 @@
 package com.example.tahasaleem.midterm;
 
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+<<<<<<< HEAD
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
 
+=======
+import android.widget.TextView;
+import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.Toast;
+import android.widget.ImageView;
+import android.media.Image;
+>>>>>>> 4172f59409b6036f4c8f8d8ed3ea23c28816eed9
 
-public class MainActivity extends AppCompatActivity {
+
+import org.w3c.dom.Text;
+
+public class MainActivity extends AppCompatActivity
+{
+    // Int variables for card game
+    final int numCards = 52;
+    private int playerScore = 0;
+
+    // Image array for cards
+    Image cards[] = new Image[numCards];
+    String fileLocation = new String();
+
+    // Alerts
+    AlertDialog.Builder playAgain;
+
+    private TextView scoreText;
+    private TextView countDown;
+    private TextView pickCardText;
 
 
 
@@ -16,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
