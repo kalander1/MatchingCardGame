@@ -8,7 +8,7 @@ package com.example.tahasaleem.midterm;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
+import 	android.os.CountDownTimer;
 
 import android.util.Log;
 import android.view.View;
@@ -79,6 +79,17 @@ public class MainActivity extends AppCompatActivity
     ImageButton cardFifteen;
     ImageButton cardSixteen;
 
+
+    //timer
+    final CountDownTimer c = new CountDownTimer(30000, 1000) {
+        public void onTick(long millisUntilFinished) {
+            countDown.setText("Time remaining: " + millisUntilFinished / 1000);
+        }
+        public void onFinish(){
+            countDown.setText("Timeout");
+        }
+
+    }.start();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -153,8 +164,11 @@ public class MainActivity extends AppCompatActivity
         cardSixteen.setOnClickListener(cSixteen);
 
         scoreText = (TextView) findViewById(R.id.score);
+        countDown = (TextView) findViewById(R.id.time);
+        pickCardText = (TextView)findViewById(R.id.pick);
         loopCards();
         loopDup();
+
     }
 
 
@@ -171,6 +185,7 @@ public class MainActivity extends AppCompatActivity
             {
                 selected[countClick]=cardsList.get(0);
                 countClick++;
+                pickCardText.setText("Pick Another Card!");
             }
             else if(countClick == 1)
             {
@@ -184,6 +199,7 @@ public class MainActivity extends AppCompatActivity
                else {
                    countClick = 0;
                    cardOne.setImageResource(R.drawable.cardback);
+                   
                }
             }
         }
@@ -198,6 +214,8 @@ public class MainActivity extends AppCompatActivity
             {
                 selected[countClick]=dupList.get(0);
                 countClick++;
+                pickCardText.setText("Pick Another Card!");
+
             }
             else if(countClick == 1)
             {
@@ -224,6 +242,8 @@ public class MainActivity extends AppCompatActivity
             {
                 selected[countClick]=cardsList.get(1);
                 countClick++;
+                pickCardText.setText("Pick Another Card!");
+
             }
             else if(countClick == 1)
             {
@@ -251,6 +271,8 @@ public class MainActivity extends AppCompatActivity
             {
                 selected[countClick]=dupList.get(1);
                 countClick++;
+                pickCardText.setText("Pick Another Card!");
+
             }
             else if(countClick == 1)
             {
@@ -278,6 +300,8 @@ public class MainActivity extends AppCompatActivity
             {
                 selected[countClick]=cardsList.get(2);
                 countClick++;
+                pickCardText.setText("Pick Another Card!");
+
             }
             else if(countClick == 1)
             {
@@ -304,6 +328,8 @@ public class MainActivity extends AppCompatActivity
             {
                 selected[countClick]=dupList.get(2);
                 countClick++;
+                pickCardText.setText("Pick Another Card!");
+
             }
             else if(countClick == 1)
             {
@@ -330,6 +356,8 @@ public class MainActivity extends AppCompatActivity
             {
                 selected[countClick]=cardsList.get(3);
                 countClick++;
+                pickCardText.setText("Pick Another Card!");
+
             }
             else if(countClick == 1)
             {
@@ -356,6 +384,8 @@ public class MainActivity extends AppCompatActivity
             {
                 selected[countClick]=dupList.get(3);
                 countClick++;
+                pickCardText.setText("Pick Another Card!");
+
             }
             else if(countClick == 1)
             {
@@ -382,6 +412,8 @@ public class MainActivity extends AppCompatActivity
             {
                 selected[countClick]=cardsList.get(4);
                 countClick++;
+                pickCardText.setText("Pick Another Card!");
+
             }
             else if(countClick == 1)
             {
@@ -409,6 +441,8 @@ public class MainActivity extends AppCompatActivity
             {
                 selected[countClick]=dupList.get(4);
                 countClick++;
+                pickCardText.setText("Pick Another Card!");
+
             }
             else if(countClick == 1)
             {
@@ -435,6 +469,8 @@ public class MainActivity extends AppCompatActivity
             {
                 selected[countClick]=cardsList.get(5);
                 countClick++;
+                pickCardText.setText("Pick Another Card!");
+
             }
             else if(countClick == 1)
             {
@@ -461,6 +497,8 @@ public class MainActivity extends AppCompatActivity
             {
                 selected[countClick]=dupList.get(5);
                 countClick++;
+                pickCardText.setText("Pick Another Card!");
+
             }
             else if(countClick == 1)
             {
@@ -487,6 +525,8 @@ public class MainActivity extends AppCompatActivity
             {
                 selected[countClick]=cardsList.get(6);
                 countClick++;
+                pickCardText.setText("Pick Another Card!");
+
             }
             else if(countClick == 1)
             {
@@ -513,6 +553,8 @@ public class MainActivity extends AppCompatActivity
             {
                 selected[countClick]=dupList.get(6);
                 countClick++;
+                pickCardText.setText("Pick Another Card!");
+
             }
             else if(countClick == 1)
             {
@@ -539,6 +581,8 @@ public class MainActivity extends AppCompatActivity
             {
                 selected[countClick]=cardsList.get(7);
                 countClick++;
+                pickCardText.setText("Pick Another Card!");
+
             }
             else if(countClick == 1)
             {
@@ -565,6 +609,8 @@ public class MainActivity extends AppCompatActivity
             {
                 selected[countClick]=dupList.get(7);
                 countClick++;
+                pickCardText.setText("Pick Another Card!");
+
             }
             else if(countClick == 1)
             {
@@ -604,6 +650,7 @@ public class MainActivity extends AppCompatActivity
         Collections.shuffle(dupList);
 
     }
+
 
 
 
