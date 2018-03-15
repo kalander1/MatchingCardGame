@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -19,16 +20,27 @@ import android.widget.Toast;
 import android.widget.ImageView;
 import android.media.Image;
 
+
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
 {
     // Int variables for card game
     final int numCards = 52;
     private int playerScore = 0;
+    List<Integer> cardsList = new ArrayList<Integer>();
+    List<Integer> dupList = new ArrayList<Integer>();
+    //TextView times = (TextView) findViewById(R.id.time);
+    //////
+
 
     // Image array for cards
-    int cards[] = new int[] {R.drawable.card_1c, R.drawable.card_1d, R.drawable.card_1h, R.drawable.card_1s, R.drawable.card_2c, R.drawable.card_2d, R.drawable.card_2h, R.drawable.card_2s,
+    int cards[] = new int[] {               R.drawable.card_1c, R.drawable.card_1d, R.drawable.card_1h, R.drawable.card_1s, R.drawable.card_2c, R.drawable.card_2d, R.drawable.card_2h, R.drawable.card_2s,
                                             R.drawable.card_3c, R.drawable.card_3d, R.drawable.card_3h, R.drawable.card_3s, R.drawable.card_4c,R.drawable.card_4d,R.drawable.card_4h,R.drawable.card_4s,
                                             R.drawable.card_5c, R.drawable.card_5d, R.drawable.card_5h, R.drawable.card_5s, R.drawable.card_6c, R.drawable.card_6d, R.drawable.card_6h, R.drawable.card_6s,
                                             R.drawable.card_7c, R.drawable.card_7d, R.drawable.card_7h, R.drawable.card_7s, R.drawable.card_8c, R.drawable.card_8d, R.drawable.card_8h, R.drawable.card_8s,
@@ -44,106 +56,134 @@ public class MainActivity extends AppCompatActivity
     private TextView pickCardText;
 
 
+
+    //Buttons Dec
+    ImageButton cardTwo;
+    ImageButton cardOne;
+    ImageButton cardThree;
+    ImageButton cardFour;
+    ImageButton cardFive;
+    ImageButton cardSix;
+    ImageButton cardSeven;
+    ImageButton cardEight;
+    ImageButton cardNine;
+    ImageButton cardTen;
+    ImageButton cardEleven;
+    ImageButton cardTwelve;
+    ImageButton cardThirteen;
+    ImageButton cardFourteen;
+    ImageButton cardFifteen;
+    ImageButton cardSixteen;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         //Card Buttons
-        ImageButton cardOne = (ImageButton) findViewById(R.id.card1);
+        cardOne = (ImageButton) findViewById(R.id.card1);
         cardOneLsn cOne = new cardOneLsn();
         cardOne.setOnClickListener(cOne);
 
-        ImageButton cardTwo = (ImageButton) findViewById(R.id.card2);
+        cardTwo = (ImageButton) findViewById(R.id.card2);
         cardTwoLsn cTwo = new cardTwoLsn();
         cardTwo.setOnClickListener(cTwo);
 
-        ImageButton cardThree = (ImageButton) findViewById(R.id.card3);
+        cardThree = (ImageButton) findViewById(R.id.card3);
         cardThreeLsn cThree = new cardThreeLsn();
         cardThree.setOnClickListener(cThree);
 
-        ImageButton cardFour = (ImageButton) findViewById(R.id.card4);
+        cardFour = (ImageButton) findViewById(R.id.card4);
         cardFourLsn cFour = new cardFourLsn();
         cardFour.setOnClickListener(cFour);
 
-        ImageButton cardFive = (ImageButton) findViewById(R.id.card5);
+        cardFive = (ImageButton) findViewById(R.id.card5);
         cardFiveLsn cFive = new cardFiveLsn();
         cardFive.setOnClickListener(cFive);
 
-        ImageButton cardSix = (ImageButton) findViewById(R.id.card6);
+        cardSix = (ImageButton) findViewById(R.id.card6);
         cardSixLsn cSix = new cardSixLsn();
         cardSix.setOnClickListener(cSix);
 
-        ImageButton cardSeven = (ImageButton) findViewById(R.id.card7);
+        cardSeven = (ImageButton) findViewById(R.id.card7);
         cardSevenLsn cSeven = new cardSevenLsn();
         cardSeven.setOnClickListener(cSeven);
 
-        ImageButton cardEight = (ImageButton) findViewById(R.id.card8);
+        cardEight = (ImageButton) findViewById(R.id.card8);
         cardEightLsn cEight = new cardEightLsn();
         cardEight.setOnClickListener(cEight);
 
-        ImageButton cardNine = (ImageButton) findViewById(R.id.card9);
+        cardNine = (ImageButton) findViewById(R.id.card9);
         cardNineLsn cNine = new cardNineLsn();
         cardNine.setOnClickListener(cNine);
 
-        ImageButton cardTen = (ImageButton) findViewById(R.id.card10);
+        cardTen = (ImageButton) findViewById(R.id.card10);
         cardTenLsn cTen = new cardTenLsn();
         cardTen.setOnClickListener(cTen);
 
-        ImageButton cardEleven = (ImageButton) findViewById(R.id.card11);
+        cardEleven = (ImageButton) findViewById(R.id.card11);
         cardElevenLsn cEleven = new cardElevenLsn();
         cardEleven.setOnClickListener(cEleven);
 
-        ImageButton cardTwelve = (ImageButton) findViewById(R.id.card12);
+        cardTwelve = (ImageButton) findViewById(R.id.card12);
         cardTwelveLsn cTwelve = new cardTwelveLsn();
         cardTwelve.setOnClickListener(cTwelve);
 
-        ImageButton cardThirteen = (ImageButton) findViewById(R.id.card13);
+        cardThirteen = (ImageButton) findViewById(R.id.card13);
         cardThirteenLsn cThirteen = new cardThirteenLsn();
         cardThirteen.setOnClickListener(cThirteen);
 
-        ImageButton cardFourteen = (ImageButton) findViewById(R.id.card14);
+        cardFourteen = (ImageButton) findViewById(R.id.card14);
         cardFourteenLsn cFourteen = new cardFourteenLsn();
         cardFourteen.setOnClickListener(cFourteen);
 
-        ImageButton cardFifteen = (ImageButton) findViewById(R.id.card15);
+        cardFifteen = (ImageButton) findViewById(R.id.card15);
         cardFifteenLsn cFifteen = new cardFifteenLsn();
         cardFifteen.setOnClickListener(cFifteen);
 
-        ImageButton cardSixteen = (ImageButton) findViewById(R.id.card16);
+        cardSixteen = (ImageButton) findViewById(R.id.card16);
         cardSixteenLsn cSixteen = new cardSixteenLsn();
         cardSixteen.setOnClickListener(cSixteen);
+
+        loopCards();
+        loopDup();
     }
 
 
 
+
     //Buttons Listeners
-    private class cardOneLsn implements View.OnClickListener{
+    private class cardOneLsn implements View.OnClickListener
+    {
         @Override
         public void onClick(View v)
         {
-
+            cardOne.setImageResource(cardsList.get(0));
         }
     }
     private class cardTwoLsn implements View.OnClickListener{
         @Override
         public void onClick(View v)
         {
-
+          //  cardTwo.setImageResource(cardsList.get(1));
+            cardTwo.setImageResource(dupList.get(0));
         }
     }
     private class cardThreeLsn implements View.OnClickListener{
         @Override
         public void onClick(View v)
         {
-
+            cardThree.setImageResource(cardsList.get(1));
         }
     }
     private class cardFourLsn implements View.OnClickListener{
         @Override
         public void onClick(View v)
         {
+            cardFour.setImageResource(dupList.get(1));
 
         }
     }
@@ -151,92 +191,112 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void onClick(View v)
         {
-
+            cardFive.setImageResource(cardsList.get(2));
         }
     }
     private class cardSixLsn implements View.OnClickListener{
         @Override
         public void onClick(View v)
         {
-
+            cardSix.setImageResource(dupList.get(2));
         }
     }
     private class cardSevenLsn implements View.OnClickListener{
         @Override
         public void onClick(View v)
         {
-
+            cardSeven.setImageResource(cardsList.get(3));
         }
     }
     private class cardEightLsn implements View.OnClickListener{
         @Override
         public void onClick(View v)
         {
-
+            cardEight.setImageResource(dupList.get(3));
         }
     }
     private class cardNineLsn implements View.OnClickListener{
         @Override
         public void onClick(View v)
         {
-
+            cardNine.setImageResource(cardsList.get(4));
         }
     }
     private class cardTenLsn implements View.OnClickListener{
         @Override
         public void onClick(View v)
         {
-
+            cardTen.setImageResource(dupList.get(4));
         }
     }
     private class cardElevenLsn implements View.OnClickListener{
         @Override
         public void onClick(View v)
         {
-
+            cardEleven.setImageResource(cardsList.get(5));
         }
     }
     private class cardTwelveLsn implements View.OnClickListener{
         @Override
         public void onClick(View v)
         {
-
+            cardTwelve.setImageResource(dupList.get(5));
         }
     }
     private class cardThirteenLsn implements View.OnClickListener{
         @Override
         public void onClick(View v)
         {
-
+            cardThirteen.setImageResource(cardsList.get(6));
         }
     }
     private class cardFourteenLsn implements View.OnClickListener{
         @Override
         public void onClick(View v)
         {
-
+            cardFourteen.setImageResource(dupList.get(6));
         }
     }
     private class cardFifteenLsn implements View.OnClickListener{
         @Override
         public void onClick(View v)
         {
-
+            cardFifteen.setImageResource(cardsList.get(7));
         }
     }
     private class cardSixteenLsn implements View.OnClickListener{
         @Override
         public void onClick(View v)
         {
-
+            cardSixteen.setImageResource(dupList.get(7));
         }
     }
 
-    private void loopCards()
+    public void loopCards()
     {
-        for (int i = 0; i < numCards ; i++)
-        {
 
+        for(int i=0; i<cards.length; i++)
+        {
+            cardsList.add(cards[i]);
         }
+        Collections.shuffle(cardsList);
+
+
+
     }
+    public void loopDup()
+    {
+        for(int x=0; x<8;x++)
+        {
+            dupList.add(cardsList.get(x));
+        }
+        Collections.shuffle(dupList);
+
+    }
+
+    public void compareCards()
+    {
+
+    }
+
 }
