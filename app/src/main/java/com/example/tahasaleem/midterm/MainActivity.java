@@ -5,6 +5,7 @@
 
 package com.example.tahasaleem.midterm;
 
+import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity
     List<Integer> dupList = new ArrayList<Integer>();
 
     //TextView times = (TextView) findViewById(R.id.time);
+
+    final Handler handler = new Handler();
 
 
     // Image array for cards
@@ -172,6 +175,12 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+ /*handler.postDelayed(new Runnable(){
+    @Override
+    public void run() {
+
+    }
+}, 3000);*/
 
 
     //Buttons Listeners
@@ -186,6 +195,7 @@ public class MainActivity extends AppCompatActivity
                 selected[countClick]=cardsList.get(0);
                 countClick++;
                 pickCardText.setText("Pick Another Card!");
+                cardOne.setImageResource(R.drawable.cardback);
             }
             else if(countClick == 1)
             {
@@ -199,7 +209,6 @@ public class MainActivity extends AppCompatActivity
                else {
                    countClick = 0;
                    cardOne.setImageResource(R.drawable.cardback);
-                   
                }
             }
         }
@@ -651,7 +660,24 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-
-
+   /* public void cardFlipBack()
+    {
+        cardOne.setImageResource(R.drawable.cardback);
+        cardTwo.setImageResource(R.drawable.cardback);
+        cardThree.setImageResource(R.drawable.cardback);
+        cardFour.setImageResource(R.drawable.cardback);
+        cardFive.setImageResource(R.drawable.cardback);
+        cardSix.setImageResource(R.drawable.cardback);
+        cardSeven.setImageResource(R.drawable.cardback);
+        cardEight.setImageResource(R.drawable.cardback);
+        cardNine.setImageResource(R.drawable.cardback);
+        cardTen.setImageResource(R.drawable.cardback);
+        cardEleven.setImageResource(R.drawable.cardback);
+        cardTwelve.setImageResource(R.drawable.cardback);
+        cardThirteen.setImageResource(R.drawable.cardback);
+        cardFourteen.setImageResource(R.drawable.cardback);
+        cardFifteen.setImageResource(R.drawable.cardback);
+        cardSixteen.setImageResource(R.drawable.cardback);
+    }*/
 
 }
