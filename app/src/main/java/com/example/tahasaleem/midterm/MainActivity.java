@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity
     private TextView countDown;
     private TextView pickCardText;
     private int score = 0;
+    int delayTimer = 1500;
 
 
 
@@ -176,13 +177,6 @@ public class MainActivity extends AppCompatActivity
     }
 
 
- /*handler.postDelayed(new Runnable(){
-    @Override
-    public void run() {
-
-    }
-}, 3000);*/
-
 
     //Buttons Listeners
     private class cardOneLsn implements View.OnClickListener
@@ -194,32 +188,56 @@ public class MainActivity extends AppCompatActivity
             {
                 selectedImg[countClick]= cardOne;
                 selected[countClick]=cardsList.get(0);
+                selectedImg[countClick].setClickable(false);
                 countClick++;
+
                 pickCardText.setText("Pick Another Card!");
                 cardOne.setImageResource(cardsList.get(0));
-
-               // cardOne.setImageResource(R.drawable.cardback);
             }
+
             else if(countClick == 1)
             {
                 selectedImg[countClick]= cardOne;
                 selected[countClick] = cardsList.get(0);
                 cardOne.setImageResource(cardsList.get(0));
+                selectedImg[countClick].setClickable(false);
 
                 if(selected[0]==selected[1])
                {
                    score += 10;
                    scoreText.setText(String.valueOf(score));
+                   // Remove Image button
+                   handler.postDelayed(new Runnable()
+                   {
+                       @Override
+                       public void run()
+                       {
+                           selectedImg[0].setVisibility(View.GONE);
+                           selectedImg[1].setVisibility(View.GONE);
+                       }
+                   }, delayTimer);
+
                    countClick=0;
+
                }
                else {
-                   countClick = 0;
-                   selectedImg[0].setImageResource(R.drawable.cardback);
-                   selectedImg[1].setImageResource(R.drawable.cardback);
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            countClick = 0;
+                            selectedImg[0].setImageResource(R.drawable.cardback);
+                            selectedImg[1].setImageResource(R.drawable.cardback);
+                            selectedImg[0].setClickable(true);
+                            selectedImg[1].setClickable(true);
+                        }
+                    }, delayTimer);
                }
             }
         }
     }
+
     private class cardTwoLsn implements View.OnClickListener{
         @Override
         public void onClick(View v)
@@ -229,6 +247,7 @@ public class MainActivity extends AppCompatActivity
             {
                 cardTwo.setImageResource(dupList.get(0));
                 selectedImg[countClick]= cardTwo;
+                selectedImg[countClick].setClickable(false);
                 selected[countClick]=dupList.get(0);
                 countClick++;
                 pickCardText.setText("Pick Another Card!");
@@ -238,21 +257,45 @@ public class MainActivity extends AppCompatActivity
             {
                 selectedImg[countClick]= cardTwo;
                 selected[countClick] = dupList.get(0);
+                selectedImg[countClick].setClickable(false);
                 cardTwo.setImageResource(dupList.get(0));
+
 
                 if(selected[0]==selected[1])
                 {
                     score += 10;
                     scoreText.setText(String.valueOf(score));
+                    // Remove Image button
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            selectedImg[0].setVisibility(View.GONE);
+                            selectedImg[1].setVisibility(View.GONE);
+                        }
+                    }, delayTimer);
+
                     countClick=0;
                 }
                 else {
-                    countClick = 0;
-                    selectedImg[0].setImageResource(R.drawable.cardback);
-                    selectedImg[1].setImageResource(R.drawable.cardback);                }
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            countClick = 0;
+                            selectedImg[0].setImageResource(R.drawable.cardback);
+                            selectedImg[1].setImageResource(R.drawable.cardback);
+                            selectedImg[0].setClickable(true);
+                            selectedImg[1].setClickable(true);
+                        }
+                    }, delayTimer);
+                }
             }
         }
     }
+
     private class cardThreeLsn implements View.OnClickListener{
         @Override
         public void onClick(View v)
@@ -263,6 +306,8 @@ public class MainActivity extends AppCompatActivity
                 selectedImg[countClick]= cardThree;
                 cardThree.setImageResource(cardsList.get(1));
                 selected[countClick]=cardsList.get(1);
+                selectedImg[countClick].setClickable(false);
+
                 countClick++;
                 pickCardText.setText("Pick Another Card!");
 
@@ -271,18 +316,39 @@ public class MainActivity extends AppCompatActivity
             {
                 selected[countClick] = cardsList.get(1);
                 selectedImg[countClick]= cardThree;
+                selectedImg[countClick].setClickable(false);
                 cardThree.setImageResource(cardsList.get(1));
 
                 if(selected[0]==selected[1])
                 {
                     score += 10;
                     scoreText.setText(String.valueOf(score));
+                    // Remove Image button
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            selectedImg[0].setVisibility(View.GONE);
+                            selectedImg[1].setVisibility(View.GONE);
+                        }
+                    }, delayTimer);
                     countClick=0;
                 }
                 else {
-                    countClick = 0;
-                    selectedImg[0].setImageResource(R.drawable.cardback);
-                    selectedImg[1].setImageResource(R.drawable.cardback);                }
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            countClick = 0;
+                            selectedImg[0].setImageResource(R.drawable.cardback);
+                            selectedImg[1].setImageResource(R.drawable.cardback);
+                            selectedImg[0].setClickable(true);
+                            selectedImg[1].setClickable(true);
+                        }
+                    }, delayTimer);
+                }
             }
         }
 
@@ -296,6 +362,8 @@ public class MainActivity extends AppCompatActivity
                 selectedImg[countClick]= cardFour;
                 cardFour.setImageResource(dupList.get(1));
                 selected[countClick]=dupList.get(1);
+                selectedImg[countClick].setClickable(false);
+
                 countClick++;
                 pickCardText.setText("Pick Another Card!");
 
@@ -304,18 +372,39 @@ public class MainActivity extends AppCompatActivity
             {
                 selected[countClick] = dupList.get(1);
                 selectedImg[countClick]= cardFour;
+                selectedImg[countClick].setClickable(false);
                 cardFour.setImageResource(dupList.get(1));
 
                 if(selected[0]==selected[1])
                 {
                     score += 10;
                     scoreText.setText(String.valueOf(score));
+                    // Remove Image button
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            selectedImg[0].setVisibility(View.GONE);
+                            selectedImg[1].setVisibility(View.GONE);
+                        }
+                    }, delayTimer);
                     countClick=0;
                 }
                 else {
-                    countClick = 0;
-                    selectedImg[0].setImageResource(R.drawable.cardback);
-                    selectedImg[1].setImageResource(R.drawable.cardback);                }
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            countClick = 0;
+                            selectedImg[0].setImageResource(R.drawable.cardback);
+                            selectedImg[1].setImageResource(R.drawable.cardback);
+                            selectedImg[0].setClickable(true);
+                            selectedImg[1].setClickable(true);
+                        }
+                    }, delayTimer);
+                }
             }
 
         }
@@ -329,6 +418,8 @@ public class MainActivity extends AppCompatActivity
                 cardFive.setImageResource(cardsList.get(2));
                 selectedImg[countClick]= cardFive;
                 selected[countClick]=cardsList.get(2);
+                selectedImg[countClick].setClickable(false);
+
                 countClick++;
                 pickCardText.setText("Pick Another Card!");
 
@@ -338,17 +429,38 @@ public class MainActivity extends AppCompatActivity
                 selected[countClick] = cardsList.get(2);
                 selectedImg[countClick]= cardFive;
                 cardFive.setImageResource(cardsList.get(2));
+                selectedImg[countClick].setClickable(false);
 
                 if(selected[0]==selected[1])
                 {
                     score += 10;
                     scoreText.setText(String.valueOf(score));
+                    // Remove Image button
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            selectedImg[0].setVisibility(View.GONE);
+                            selectedImg[1].setVisibility(View.GONE);
+                        }
+                    }, delayTimer);
                     countClick=0;
                 }
                 else {
-                    countClick = 0;
-                    selectedImg[0].setImageResource(R.drawable.cardback);
-                    selectedImg[1].setImageResource(R.drawable.cardback);                }
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            countClick = 0;
+                            selectedImg[0].setImageResource(R.drawable.cardback);
+                            selectedImg[1].setImageResource(R.drawable.cardback);
+                            selectedImg[0].setClickable(true);
+                            selectedImg[1].setClickable(true);
+                        }
+                    }, delayTimer);
+                }
             }
         }
     }
@@ -360,8 +472,9 @@ public class MainActivity extends AppCompatActivity
             {
                 cardSix.setImageResource(dupList.get(2));
                 selectedImg[countClick]= cardSix;
-
                 selected[countClick]=dupList.get(2);
+                selectedImg[countClick].setClickable(false);
+
                 countClick++;
                 pickCardText.setText("Pick Another Card!");
 
@@ -371,17 +484,39 @@ public class MainActivity extends AppCompatActivity
                 selected[countClick] = dupList.get(2);
                 selectedImg[countClick]= cardSix;
                 cardSix.setImageResource(dupList.get(2));
+                selectedImg[countClick].setClickable(false);
 
                 if(selected[0]==selected[1])
                 {
                     score += 10;
                     scoreText.setText(String.valueOf(score));
+
+                    // Remove Image button
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            selectedImg[0].setVisibility(View.GONE);
+                            selectedImg[1].setVisibility(View.GONE);
+                        }
+                    }, delayTimer);
                     countClick=0;
                 }
                 else {
-                    countClick = 0;
-                    selectedImg[0].setImageResource(R.drawable.cardback);
-                    selectedImg[1].setImageResource(R.drawable.cardback);                }
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            countClick = 0;
+                            selectedImg[0].setImageResource(R.drawable.cardback);
+                            selectedImg[1].setImageResource(R.drawable.cardback);
+                            selectedImg[0].setClickable(true);
+                            selectedImg[1].setClickable(true);
+                        }
+                    }, delayTimer);
+                }
             }
         }
     }
@@ -394,6 +529,8 @@ public class MainActivity extends AppCompatActivity
                 selectedImg[countClick]= cardSeven;
                 cardSeven.setImageResource(cardsList.get(3));
                 selected[countClick]=cardsList.get(3);
+                selectedImg[countClick].setClickable(false);
+
                 countClick++;
                 pickCardText.setText("Pick Another Card!");
 
@@ -403,18 +540,40 @@ public class MainActivity extends AppCompatActivity
                 selected[countClick] = cardsList.get(3);
                 selectedImg[countClick]= cardSeven;
                 cardSeven.setImageResource(cardsList.get(3));
+                selectedImg[countClick].setClickable(false);
 
                 if(selected[0]==selected[1])
                 {
 
                     score += 10;
                     scoreText.setText(String.valueOf(score));
+
+                    // Remove Image button
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            selectedImg[0].setVisibility(View.GONE);
+                            selectedImg[1].setVisibility(View.GONE);
+                        }
+                    }, delayTimer);
                     countClick=0;
                 }
                 else {
-                    countClick = 0;
-                    selectedImg[0].setImageResource(R.drawable.cardback);
-                    selectedImg[1].setImageResource(R.drawable.cardback);                }
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            countClick = 0;
+                            selectedImg[0].setImageResource(R.drawable.cardback);
+                            selectedImg[1].setImageResource(R.drawable.cardback);
+                            selectedImg[0].setClickable(true);
+                            selectedImg[1].setClickable(true);
+                        }
+                    }, delayTimer);
+                }
             }
         }
     }
@@ -426,8 +585,9 @@ public class MainActivity extends AppCompatActivity
             {
                 cardEight.setImageResource(dupList.get(3));
                 selectedImg[countClick]= cardEight;
-
                 selected[countClick]=dupList.get(3);
+                selectedImg[countClick].setClickable(false);
+
                 countClick++;
                 pickCardText.setText("Pick Another Card!");
 
@@ -437,17 +597,39 @@ public class MainActivity extends AppCompatActivity
                 selected[countClick] = dupList.get(3);
                 selectedImg[countClick]= cardEight;
                 cardEight.setImageResource(dupList.get(3));
+                selectedImg[countClick].setClickable(false);
 
                 if(selected[0]==selected[1])
                 {
                     score += 10;
                     scoreText.setText(String.valueOf(score));
+
+                    // Remove Image button
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            selectedImg[0].setVisibility(View.GONE);
+                            selectedImg[1].setVisibility(View.GONE);
+                        }
+                    }, delayTimer);
                     countClick=0;
                 }
                 else {
-                    countClick = 0;
-                    selectedImg[0].setImageResource(R.drawable.cardback);
-                    selectedImg[1].setImageResource(R.drawable.cardback);                }
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            countClick = 0;
+                            selectedImg[0].setImageResource(R.drawable.cardback);
+                            selectedImg[1].setImageResource(R.drawable.cardback);
+                            selectedImg[0].setClickable(true);
+                            selectedImg[1].setClickable(true);
+                        }
+                    }, delayTimer);
+                }
             }
         }
     }
@@ -460,6 +642,8 @@ public class MainActivity extends AppCompatActivity
                 cardNine.setImageResource(cardsList.get(4));
                 selectedImg[countClick]= cardNine;
                 selected[countClick]=cardsList.get(4);
+                selectedImg[countClick].setClickable(false);
+
                 countClick++;
                 pickCardText.setText("Pick Another Card!");
 
@@ -470,17 +654,39 @@ public class MainActivity extends AppCompatActivity
                 selected[countClick] = cardsList.get(4);
                 selectedImg[countClick]= cardNine;
                 cardNine.setImageResource(cardsList.get(4));
+                selectedImg[countClick].setClickable(false);
 
                 if(selected[0]==selected[1])
                 {
                     score += 10;
                     scoreText.setText(String.valueOf(score));
+
+                    // Remove Image button
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            selectedImg[0].setVisibility(View.GONE);
+                            selectedImg[1].setVisibility(View.GONE);
+                        }
+                    }, delayTimer);
                     countClick=0;
                 }
                 else {
-                    countClick = 0;
-                    selectedImg[0].setImageResource(R.drawable.cardback);
-                    selectedImg[1].setImageResource(R.drawable.cardback);                }
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            countClick = 0;
+                            selectedImg[0].setImageResource(R.drawable.cardback);
+                            selectedImg[1].setImageResource(R.drawable.cardback);
+                            selectedImg[0].setClickable(true);
+                            selectedImg[1].setClickable(true);
+                        }
+                    }, delayTimer);
+                }
             }
         }
     }
@@ -494,6 +700,8 @@ public class MainActivity extends AppCompatActivity
                 cardTen.setImageResource(dupList.get(4));
                 selected[countClick]=dupList.get(4);
                 selectedImg[countClick]= cardTen;
+                selectedImg[countClick].setClickable(false);
+
                 countClick++;
                 pickCardText.setText("Pick Another Card!");
 
@@ -503,17 +711,39 @@ public class MainActivity extends AppCompatActivity
                 selected[countClick] = dupList.get(4);
                 selectedImg[countClick]= cardTen;
                 cardTen.setImageResource(dupList.get(4));
+                selectedImg[countClick].setClickable(false);
 
                 if(selected[0]==selected[1])
                 {
                     score += 10;
                     scoreText.setText(String.valueOf(score));
+
+                    // Remove Image button
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            selectedImg[0].setVisibility(View.GONE);
+                            selectedImg[1].setVisibility(View.GONE);
+                        }
+                    }, delayTimer);
                     countClick=0;
                 }
                 else {
-                    countClick = 0;
-                    selectedImg[0].setImageResource(R.drawable.cardback);
-                    selectedImg[1].setImageResource(R.drawable.cardback);                }
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            countClick = 0;
+                            selectedImg[0].setImageResource(R.drawable.cardback);
+                            selectedImg[1].setImageResource(R.drawable.cardback);
+                            selectedImg[0].setClickable(true);
+                            selectedImg[1].setClickable(true);
+                        }
+                    }, delayTimer);
+                }
             }
         }
     }
@@ -526,6 +756,8 @@ public class MainActivity extends AppCompatActivity
                 cardEleven.setImageResource(cardsList.get(5));
                 selectedImg[countClick]= cardEleven;
                 selected[countClick]=cardsList.get(5);
+                selectedImg[countClick].setClickable(false);
+
                 countClick++;
                 pickCardText.setText("Pick Another Card!");
 
@@ -534,18 +766,40 @@ public class MainActivity extends AppCompatActivity
             {
                 selectedImg[countClick]= cardEleven;
                 cardEleven.setImageResource(cardsList.get(5));
-
                 selected[countClick] = cardsList.get(5);
+                selectedImg[countClick].setClickable(false);
+
                 if(selected[0]==selected[1])
                 {
                     score += 10;
                     scoreText.setText(String.valueOf(score));
+
+                    // Remove Image button
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            selectedImg[0].setVisibility(View.GONE);
+                            selectedImg[1].setVisibility(View.GONE);
+                        }
+                    }, delayTimer);
                     countClick=0;
                 }
                 else {
-                    countClick = 0;
-                    selectedImg[0].setImageResource(R.drawable.cardback);
-                    selectedImg[1].setImageResource(R.drawable.cardback);                }
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            countClick = 0;
+                            selectedImg[0].setImageResource(R.drawable.cardback);
+                            selectedImg[1].setImageResource(R.drawable.cardback);
+                            selectedImg[0].setClickable(true);
+                            selectedImg[1].setClickable(true);
+                        }
+                    }, delayTimer);
+                }
             }
         }
     }
@@ -558,6 +812,8 @@ public class MainActivity extends AppCompatActivity
                 selectedImg[countClick]= cardTwelve;
                 cardTwelve.setImageResource(dupList.get(5));
                 selected[countClick]=dupList.get(5);
+                selectedImg[countClick].setClickable(false);
+
                 countClick++;
                 pickCardText.setText("Pick Another Card!");
 
@@ -566,18 +822,40 @@ public class MainActivity extends AppCompatActivity
             {
                 selectedImg[countClick]= cardTwelve;
                 cardTwelve.setImageResource(dupList.get(5));
-
                 selected[countClick] = dupList.get(5);
+                selectedImg[countClick].setClickable(false);
+
                 if(selected[0]==selected[1])
                 {
                     score += 10;
                     scoreText.setText(String.valueOf(score));
+
+                    // Remove Image button
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            selectedImg[0].setVisibility(View.GONE);
+                            selectedImg[1].setVisibility(View.GONE);
+                        }
+                    }, delayTimer);
                     countClick=0;
                 }
                 else {
-                    countClick = 0;
-                    selectedImg[0].setImageResource(R.drawable.cardback);
-                    selectedImg[1].setImageResource(R.drawable.cardback);                }
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            countClick = 0;
+                            selectedImg[0].setImageResource(R.drawable.cardback);
+                            selectedImg[1].setImageResource(R.drawable.cardback);
+                            selectedImg[0].setClickable(true);
+                            selectedImg[1].setClickable(true);
+                        }
+                    }, delayTimer);
+                }
             }
         }
     }
@@ -589,8 +867,9 @@ public class MainActivity extends AppCompatActivity
             {
                 cardThirteen.setImageResource(cardsList.get(6));
                 selectedImg[countClick]= cardThirteen;
-
                 selected[countClick]=cardsList.get(6);
+                selectedImg[countClick].setClickable(false);
+
                 countClick++;
                 pickCardText.setText("Pick Another Card!");
 
@@ -600,17 +879,39 @@ public class MainActivity extends AppCompatActivity
                 selected[countClick] = cardsList.get(6);
                 selectedImg[countClick]= cardThirteen;
                 cardThirteen.setImageResource(cardsList.get(6));
+                selectedImg[countClick].setClickable(false);
 
                 if(selected[0]==selected[1])
                 {
                     score += 10;
                     scoreText.setText(String.valueOf(score));
+
+                    // Remove Image button
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            selectedImg[0].setVisibility(View.GONE);
+                            selectedImg[1].setVisibility(View.GONE);
+                        }
+                    }, delayTimer);
                     countClick=0;
                 }
                 else {
-                    countClick = 0;
-                    selectedImg[0].setImageResource(R.drawable.cardback);
-                    selectedImg[1].setImageResource(R.drawable.cardback);                }
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            countClick = 0;
+                            selectedImg[0].setImageResource(R.drawable.cardback);
+                            selectedImg[1].setImageResource(R.drawable.cardback);
+                            selectedImg[0].setClickable(true);
+                            selectedImg[1].setClickable(true);
+                        }
+                    }, delayTimer);
+                }
             }
         }
     }
@@ -623,6 +924,8 @@ public class MainActivity extends AppCompatActivity
                 cardFourteen.setImageResource(dupList.get(6));
                 selectedImg[countClick]= cardFourteen;
                 selected[countClick]=dupList.get(6);
+                selectedImg[countClick].setClickable(false);
+
                 countClick++;
                 pickCardText.setText("Pick Another Card!");
 
@@ -632,17 +935,39 @@ public class MainActivity extends AppCompatActivity
                 selected[countClick] = dupList.get(6);
                 selectedImg[countClick]= cardFourteen;
                 cardFourteen.setImageResource(dupList.get(6));
+                selectedImg[countClick].setClickable(false);
 
                 if(selected[0]==selected[1])
                 {
                     score += 10;
                     scoreText.setText(String.valueOf(score));
+
+                    // Remove Image button
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            selectedImg[0].setVisibility(View.GONE);
+                            selectedImg[1].setVisibility(View.GONE);
+                        }
+                    }, delayTimer);
                     countClick=0;
                 }
                 else {
-                    countClick = 0;
-                    selectedImg[0].setImageResource(R.drawable.cardback);
-                    selectedImg[1].setImageResource(R.drawable.cardback);                }
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            countClick = 0;
+                            selectedImg[0].setImageResource(R.drawable.cardback);
+                            selectedImg[1].setImageResource(R.drawable.cardback);
+                            selectedImg[0].setClickable(true);
+                            selectedImg[1].setClickable(true);
+                        }
+                    }, delayTimer);
+                }
             }
         }
     }
@@ -654,8 +979,9 @@ public class MainActivity extends AppCompatActivity
             {
                 cardFifteen.setImageResource(cardsList.get(7));
                 selectedImg[countClick]= cardFifteen;
-
                 selected[countClick]=cardsList.get(7);
+                selectedImg[countClick].setClickable(false);
+
                 countClick++;
                 pickCardText.setText("Pick Another Card!");
 
@@ -665,17 +991,40 @@ public class MainActivity extends AppCompatActivity
                 selected[countClick] = cardsList.get(7);
                 selectedImg[countClick]= cardFifteen;
                 cardFifteen.setImageResource(cardsList.get(7));
+                selectedImg[countClick].setClickable(false);
 
                 if(selected[0]==selected[1])
                 {
                     score += 10;
                     scoreText.setText(String.valueOf(score));
+
+                    // Remove Image button
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            selectedImg[0].setVisibility(View.GONE);
+                            selectedImg[1].setVisibility(View.GONE);
+                            
+                        }
+                    }, delayTimer);
                     countClick=0;
                 }
                 else {
-                    countClick = 0;
-                    selectedImg[0].setImageResource(R.drawable.cardback);
-                    selectedImg[1].setImageResource(R.drawable.cardback);                }
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            countClick = 0;
+                            selectedImg[0].setImageResource(R.drawable.cardback);
+                            selectedImg[1].setImageResource(R.drawable.cardback);
+                            selectedImg[0].setClickable(true);
+                            selectedImg[1].setClickable(true);
+                        }
+                    }, delayTimer);
+                }
             }
         }
     }
@@ -687,8 +1036,9 @@ public class MainActivity extends AppCompatActivity
             {
                 cardSixteen.setImageResource(dupList.get(7));
                 selectedImg[countClick]= cardSixteen;
-
                 selected[countClick]=dupList.get(7);
+                selectedImg[countClick].setClickable(false);
+
                 countClick++;
                 pickCardText.setText("Pick Another Card!");
 
@@ -698,21 +1048,44 @@ public class MainActivity extends AppCompatActivity
                 selected[countClick] = dupList.get(7);
                 selectedImg[countClick]= cardSixteen;
                 cardSixteen.setImageResource(dupList.get(7));
+                selectedImg[countClick].setClickable(false);
 
                 if(selected[0]==selected[1])
                 {
                     score += 10;
                     scoreText.setText(String.valueOf(score));
+
+                    // Remove Image button
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            selectedImg[0].setVisibility(View.GONE);
+                            selectedImg[1].setVisibility(View.GONE);
+                        }
+                    }, delayTimer);
                     countClick=0;
                 }
                 else {
-                    countClick = 0;
-                    selectedImg[0].setImageResource(R.drawable.cardback);
-                    selectedImg[1].setImageResource(R.drawable.cardback);                }
+                    handler.postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            countClick = 0;
+                            selectedImg[0].setImageResource(R.drawable.cardback);
+                            selectedImg[1].setImageResource(R.drawable.cardback);
+                            selectedImg[0].setClickable(true);
+                            selectedImg[1].setClickable(true);
+                        }
+                    }, delayTimer);
+                }
             }
         }
     }
 
+    // Shuffles list deck of cards
     public void loopCards()
     {
 
@@ -721,10 +1094,9 @@ public class MainActivity extends AppCompatActivity
             cardsList.add(cards[i]);
         }
         Collections.shuffle(cardsList);
-
-
-
     }
+
+    // Shuffles the 8 seleceted cards and duplicates them into a second list
     public void loopDup()
     {
         for(int x=0; x<8;x++)
