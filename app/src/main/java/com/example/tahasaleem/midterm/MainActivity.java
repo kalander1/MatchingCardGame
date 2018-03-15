@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity
     private TextView countDown;
     private TextView pickCardText;
     private int score = 0;
-    int delayTimer = 1500;
+    int delayTimer = 500;
 
 
 
@@ -189,8 +189,8 @@ public class MainActivity extends AppCompatActivity
                 selectedImg[countClick]= cardOne;
                 selected[countClick]=cardsList.get(0);
                 selectedImg[countClick].setClickable(false);
-                countClick++;
 
+                countClick++;
                 pickCardText.setText("Pick Another Card!");
                 cardOne.setImageResource(cardsList.get(0));
             }
@@ -204,23 +204,17 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                {
+                   pickCardText.setText("Correct!");
+                   // Remove Image button
                    score += 10;
                    scoreText.setText(String.valueOf(score));
-                   // Remove Image button
-                   handler.postDelayed(new Runnable()
-                   {
-                       @Override
-                       public void run()
-                       {
-                           selectedImg[0].setVisibility(View.GONE);
-                           selectedImg[1].setVisibility(View.GONE);
-                       }
-                   }, delayTimer);
-
-                   countClick=0;
+                   selectedImg[0].setVisibility(View.GONE);
+                   selectedImg[1].setVisibility(View.GONE);
+                   countClick = 0;
 
                }
                else {
+                    pickCardText.setText("Wrong combination. Pick 2 cards again.");
                     handler.postDelayed(new Runnable()
                     {
                         @Override
@@ -263,22 +257,16 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pickCardText.setText("Correct!");
+                    // Remove Image button
                     score += 10;
                     scoreText.setText(String.valueOf(score));
-                    // Remove Image button
-                    handler.postDelayed(new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            selectedImg[0].setVisibility(View.GONE);
-                            selectedImg[1].setVisibility(View.GONE);
-                        }
-                    }, delayTimer);
-
-                    countClick=0;
+                    selectedImg[0].setVisibility(View.GONE);
+                    selectedImg[1].setVisibility(View.GONE);
+                    countClick = 0;
                 }
                 else {
+                    pickCardText.setText("Wrong combination. Pick 2 cards again.");
                     handler.postDelayed(new Runnable()
                     {
                         @Override
@@ -321,21 +309,16 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pickCardText.setText("Correct!");
+                    // Remove Image button
                     score += 10;
                     scoreText.setText(String.valueOf(score));
-                    // Remove Image button
-                    handler.postDelayed(new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            selectedImg[0].setVisibility(View.GONE);
-                            selectedImg[1].setVisibility(View.GONE);
-                        }
-                    }, delayTimer);
-                    countClick=0;
+                    selectedImg[0].setVisibility(View.GONE);
+                    selectedImg[1].setVisibility(View.GONE);
+                    countClick = 0;
                 }
                 else {
+                    pickCardText.setText("Wrong combination. Pick 2 cards again.");
                     handler.postDelayed(new Runnable()
                     {
                         @Override
@@ -377,21 +360,16 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pickCardText.setText("Correct!");
+                    // Remove Image button
                     score += 10;
                     scoreText.setText(String.valueOf(score));
-                    // Remove Image button
-                    handler.postDelayed(new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            selectedImg[0].setVisibility(View.GONE);
-                            selectedImg[1].setVisibility(View.GONE);
-                        }
-                    }, delayTimer);
-                    countClick=0;
+                    selectedImg[0].setVisibility(View.GONE);
+                    selectedImg[1].setVisibility(View.GONE);
+                    countClick = 0;
                 }
                 else {
+                    pickCardText.setText("Wrong combination. Pick 2 cards again.");
                     handler.postDelayed(new Runnable()
                     {
                         @Override
@@ -433,21 +411,16 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pickCardText.setText("Correct!");
+                    // Remove Image button
                     score += 10;
                     scoreText.setText(String.valueOf(score));
-                    // Remove Image button
-                    handler.postDelayed(new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            selectedImg[0].setVisibility(View.GONE);
-                            selectedImg[1].setVisibility(View.GONE);
-                        }
-                    }, delayTimer);
-                    countClick=0;
+                    selectedImg[0].setVisibility(View.GONE);
+                    selectedImg[1].setVisibility(View.GONE);
+                    countClick = 0;
                 }
                 else {
+                    pickCardText.setText("Wrong combination. Pick 2 cards again.");
                     handler.postDelayed(new Runnable()
                     {
                         @Override
@@ -488,22 +461,16 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pickCardText.setText("Correct!");
+                    // Remove Image button
                     score += 10;
                     scoreText.setText(String.valueOf(score));
-
-                    // Remove Image button
-                    handler.postDelayed(new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            selectedImg[0].setVisibility(View.GONE);
-                            selectedImg[1].setVisibility(View.GONE);
-                        }
-                    }, delayTimer);
-                    countClick=0;
+                    selectedImg[0].setVisibility(View.GONE);
+                    selectedImg[1].setVisibility(View.GONE);
+                    countClick = 0;
                 }
                 else {
+                    pickCardText.setText("Wrong combination. Pick 2 cards again.");
                     handler.postDelayed(new Runnable()
                     {
                         @Override
@@ -544,23 +511,16 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
-
+                    pickCardText.setText("Correct!");
+                    // Remove Image button
                     score += 10;
                     scoreText.setText(String.valueOf(score));
-
-                    // Remove Image button
-                    handler.postDelayed(new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            selectedImg[0].setVisibility(View.GONE);
-                            selectedImg[1].setVisibility(View.GONE);
-                        }
-                    }, delayTimer);
-                    countClick=0;
+                    selectedImg[0].setVisibility(View.GONE);
+                    selectedImg[1].setVisibility(View.GONE);
+                    countClick = 0;
                 }
                 else {
+                    pickCardText.setText("Wrong combination. Pick 2 cards again.");
                     handler.postDelayed(new Runnable()
                     {
                         @Override
@@ -601,22 +561,16 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pickCardText.setText("Correct!");
+                    // Remove Image button
                     score += 10;
                     scoreText.setText(String.valueOf(score));
-
-                    // Remove Image button
-                    handler.postDelayed(new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            selectedImg[0].setVisibility(View.GONE);
-                            selectedImg[1].setVisibility(View.GONE);
-                        }
-                    }, delayTimer);
-                    countClick=0;
+                    selectedImg[0].setVisibility(View.GONE);
+                    selectedImg[1].setVisibility(View.GONE);
+                    countClick = 0;
                 }
                 else {
+                    pickCardText.setText("Wrong combination. Pick 2 cards again.");
                     handler.postDelayed(new Runnable()
                     {
                         @Override
@@ -658,22 +612,16 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pickCardText.setText("Correct!");
+                    // Remove Image button
                     score += 10;
                     scoreText.setText(String.valueOf(score));
-
-                    // Remove Image button
-                    handler.postDelayed(new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            selectedImg[0].setVisibility(View.GONE);
-                            selectedImg[1].setVisibility(View.GONE);
-                        }
-                    }, delayTimer);
-                    countClick=0;
+                    selectedImg[0].setVisibility(View.GONE);
+                    selectedImg[1].setVisibility(View.GONE);
+                    countClick = 0;
                 }
                 else {
+                    pickCardText.setText("Wrong combination. Pick 2 cards again.");
                     handler.postDelayed(new Runnable()
                     {
                         @Override
@@ -715,22 +663,16 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pickCardText.setText("Correct!");
                     score += 10;
                     scoreText.setText(String.valueOf(score));
+                    selectedImg[0].setVisibility(View.GONE);
+                    selectedImg[1].setVisibility(View.GONE);
+                    countClick = 0;
 
-                    // Remove Image button
-                    handler.postDelayed(new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            selectedImg[0].setVisibility(View.GONE);
-                            selectedImg[1].setVisibility(View.GONE);
-                        }
-                    }, delayTimer);
-                    countClick=0;
                 }
                 else {
+                    pickCardText.setText("Wrong combination. Pick 2 cards again.");
                     handler.postDelayed(new Runnable()
                     {
                         @Override
@@ -771,22 +713,16 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pickCardText.setText("Correct!");
+                    // Remove Image button
                     score += 10;
                     scoreText.setText(String.valueOf(score));
-
-                    // Remove Image button
-                    handler.postDelayed(new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            selectedImg[0].setVisibility(View.GONE);
-                            selectedImg[1].setVisibility(View.GONE);
-                        }
-                    }, delayTimer);
-                    countClick=0;
+                    selectedImg[0].setVisibility(View.GONE);
+                    selectedImg[1].setVisibility(View.GONE);
+                    countClick = 0;
                 }
                 else {
+                    pickCardText.setText("Wrong combination. Pick 2 cards again.");
                     handler.postDelayed(new Runnable()
                     {
                         @Override
@@ -827,22 +763,16 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pickCardText.setText("Correct!");
+                    // Remove Image button
                     score += 10;
                     scoreText.setText(String.valueOf(score));
-
-                    // Remove Image button
-                    handler.postDelayed(new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            selectedImg[0].setVisibility(View.GONE);
-                            selectedImg[1].setVisibility(View.GONE);
-                        }
-                    }, delayTimer);
-                    countClick=0;
+                    selectedImg[0].setVisibility(View.GONE);
+                    selectedImg[1].setVisibility(View.GONE);
+                    countClick = 0;
                 }
                 else {
+                    pickCardText.setText("Wrong combination. Pick 2 cards again.");
                     handler.postDelayed(new Runnable()
                     {
                         @Override
@@ -883,22 +813,16 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pickCardText.setText("Correct!");
+                    // Remove Image button
                     score += 10;
                     scoreText.setText(String.valueOf(score));
-
-                    // Remove Image button
-                    handler.postDelayed(new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            selectedImg[0].setVisibility(View.GONE);
-                            selectedImg[1].setVisibility(View.GONE);
-                        }
-                    }, delayTimer);
-                    countClick=0;
+                    selectedImg[0].setVisibility(View.GONE);
+                    selectedImg[1].setVisibility(View.GONE);
+                    countClick = 0;
                 }
                 else {
+                    pickCardText.setText("Wrong combination. Pick 2 cards again.");
                     handler.postDelayed(new Runnable()
                     {
                         @Override
@@ -939,22 +863,16 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pickCardText.setText("Correct!");
+                    // Remove Image button
                     score += 10;
                     scoreText.setText(String.valueOf(score));
-
-                    // Remove Image button
-                    handler.postDelayed(new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            selectedImg[0].setVisibility(View.GONE);
-                            selectedImg[1].setVisibility(View.GONE);
-                        }
-                    }, delayTimer);
-                    countClick=0;
+                    selectedImg[0].setVisibility(View.GONE);
+                    selectedImg[1].setVisibility(View.GONE);
+                    countClick = 0;
                 }
                 else {
+                    pickCardText.setText("Wrong combination. Pick 2 cards again.");
                     handler.postDelayed(new Runnable()
                     {
                         @Override
@@ -995,23 +913,16 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pickCardText.setText("Correct!");
+                    // Remove Image button
                     score += 10;
                     scoreText.setText(String.valueOf(score));
-
-                    // Remove Image button
-                    handler.postDelayed(new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            selectedImg[0].setVisibility(View.GONE);
-                            selectedImg[1].setVisibility(View.GONE);
-                            
-                        }
-                    }, delayTimer);
-                    countClick=0;
+                    selectedImg[0].setVisibility(View.GONE);
+                    selectedImg[1].setVisibility(View.GONE);
+                    countClick = 0;
                 }
                 else {
+                    pickCardText.setText("Wrong combination. Pick 2 cards again.");
                     handler.postDelayed(new Runnable()
                     {
                         @Override
@@ -1052,22 +963,16 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pickCardText.setText("Correct!");
+                    // Remove Image button
                     score += 10;
                     scoreText.setText(String.valueOf(score));
-
-                    // Remove Image button
-                    handler.postDelayed(new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            selectedImg[0].setVisibility(View.GONE);
-                            selectedImg[1].setVisibility(View.GONE);
-                        }
-                    }, delayTimer);
-                    countClick=0;
+                    selectedImg[0].setVisibility(View.GONE);
+                    selectedImg[1].setVisibility(View.GONE);
+                    countClick = 0;
                 }
                 else {
+                    pickCardText.setText("Wrong combination. Pick 2 cards again.");
                     handler.postDelayed(new Runnable()
                     {
                         @Override
