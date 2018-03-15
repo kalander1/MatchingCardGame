@@ -33,10 +33,13 @@ public class MainActivity extends AppCompatActivity
     // Int variables for card game
     final int numCards = 52;
     private int playerScore = 0;
+    public int countClick = 0;
+    int[] selected = new int[2];
+    // List variables
     List<Integer> cardsList = new ArrayList<Integer>();
     List<Integer> dupList = new ArrayList<Integer>();
+
     //TextView times = (TextView) findViewById(R.id.time);
-    //////
 
 
     // Image array for cards
@@ -54,6 +57,7 @@ public class MainActivity extends AppCompatActivity
     private TextView scoreText;
     private TextView countDown;
     private TextView pickCardText;
+    private int score = 0;
 
 
 
@@ -148,6 +152,7 @@ public class MainActivity extends AppCompatActivity
         cardSixteenLsn cSixteen = new cardSixteenLsn();
         cardSixteen.setOnClickListener(cSixteen);
 
+        scoreText = (TextView) findViewById(R.id.score);
         loopCards();
         loopDup();
     }
@@ -162,6 +167,25 @@ public class MainActivity extends AppCompatActivity
         public void onClick(View v)
         {
             cardOne.setImageResource(cardsList.get(0));
+            if(countClick == 0)
+            {
+                selected[countClick]=cardsList.get(0);
+                countClick++;
+            }
+            else if(countClick == 1)
+            {
+                selected[countClick] = cardsList.get(0);
+               if(selected[0]==selected[1])
+               {
+                   score += 10;
+                   scoreText.setText(String.valueOf(score));
+                   countClick=0;
+               }
+               else {
+                   countClick = 0;
+                   cardOne.setImageResource(R.drawable.cardback);
+               }
+            }
         }
     }
     private class cardTwoLsn implements View.OnClickListener{
@@ -170,6 +194,25 @@ public class MainActivity extends AppCompatActivity
         {
           //  cardTwo.setImageResource(cardsList.get(1));
             cardTwo.setImageResource(dupList.get(0));
+            if(countClick == 0)
+            {
+                selected[countClick]=dupList.get(0);
+                countClick++;
+            }
+            else if(countClick == 1)
+            {
+                selected[countClick] = dupList.get(0);
+                if(selected[0]==selected[1])
+                {
+                    score += 10;
+                    scoreText.setText(String.valueOf(score));
+                    countClick=0;
+                }
+                else {
+                    countClick = 0;
+                    cardTwo.setImageResource(R.drawable.cardback);
+                }
+            }
         }
     }
     private class cardThreeLsn implements View.OnClickListener{
@@ -177,13 +220,52 @@ public class MainActivity extends AppCompatActivity
         public void onClick(View v)
         {
             cardThree.setImageResource(cardsList.get(1));
+            if(countClick == 0)
+            {
+                selected[countClick]=cardsList.get(1);
+                countClick++;
+            }
+            else if(countClick == 1)
+            {
+                selected[countClick] = cardsList.get(1);
+                if(selected[0]==selected[1])
+                {
+                    score += 10;
+                    scoreText.setText(String.valueOf(score));
+                    countClick=0;
+                }
+                else {
+                    countClick = 0;
+                    cardThree.setImageResource(R.drawable.cardback);
+                }
+            }
         }
+
     }
     private class cardFourLsn implements View.OnClickListener{
         @Override
         public void onClick(View v)
         {
             cardFour.setImageResource(dupList.get(1));
+            if(countClick == 0)
+            {
+                selected[countClick]=dupList.get(1);
+                countClick++;
+            }
+            else if(countClick == 1)
+            {
+                selected[countClick] = dupList.get(1);
+                if(selected[0]==selected[1])
+                {
+                    score += 10;
+                    scoreText.setText(String.valueOf(score));
+                    countClick=0;
+                }
+                else {
+                    countClick = 0;
+                    cardFour.setImageResource(R.drawable.cardback);
+                }
+            }
 
         }
     }
@@ -192,6 +274,25 @@ public class MainActivity extends AppCompatActivity
         public void onClick(View v)
         {
             cardFive.setImageResource(cardsList.get(2));
+            if(countClick == 0)
+            {
+                selected[countClick]=cardsList.get(2);
+                countClick++;
+            }
+            else if(countClick == 1)
+            {
+                selected[countClick] = cardsList.get(2);
+                if(selected[0]==selected[1])
+                {
+                    score += 10;
+                    scoreText.setText(String.valueOf(score));
+                    countClick=0;
+                }
+                else {
+                    countClick = 0;
+                    cardFive.setImageResource(R.drawable.cardback);
+                }
+            }
         }
     }
     private class cardSixLsn implements View.OnClickListener{
@@ -199,6 +300,25 @@ public class MainActivity extends AppCompatActivity
         public void onClick(View v)
         {
             cardSix.setImageResource(dupList.get(2));
+            if(countClick == 0)
+            {
+                selected[countClick]=dupList.get(2);
+                countClick++;
+            }
+            else if(countClick == 1)
+            {
+                selected[countClick] = dupList.get(2);
+                if(selected[0]==selected[1])
+                {
+                    score += 10;
+                    scoreText.setText(String.valueOf(score));
+                    countClick=0;
+                }
+                else {
+                    countClick = 0;
+                    cardSix.setImageResource(R.drawable.cardback);
+                }
+            }
         }
     }
     private class cardSevenLsn implements View.OnClickListener{
@@ -206,6 +326,25 @@ public class MainActivity extends AppCompatActivity
         public void onClick(View v)
         {
             cardSeven.setImageResource(cardsList.get(3));
+            if(countClick == 0)
+            {
+                selected[countClick]=cardsList.get(3);
+                countClick++;
+            }
+            else if(countClick == 1)
+            {
+                selected[countClick] = cardsList.get(3);
+                if(selected[0]==selected[1])
+                {
+                    score += 10;
+                    scoreText.setText(String.valueOf(score));
+                    countClick=0;
+                }
+                else {
+                    countClick = 0;
+                    cardSeven.setImageResource(R.drawable.cardback);
+                }
+            }
         }
     }
     private class cardEightLsn implements View.OnClickListener{
@@ -213,6 +352,25 @@ public class MainActivity extends AppCompatActivity
         public void onClick(View v)
         {
             cardEight.setImageResource(dupList.get(3));
+            if(countClick == 0)
+            {
+                selected[countClick]=dupList.get(3);
+                countClick++;
+            }
+            else if(countClick == 1)
+            {
+                selected[countClick] = dupList.get(3);
+                if(selected[0]==selected[1])
+                {
+                    score += 10;
+                    scoreText.setText(String.valueOf(score));
+                    countClick=0;
+                }
+                else {
+                    countClick = 0;
+                    cardEight.setImageResource(R.drawable.cardback);
+                }
+            }
         }
     }
     private class cardNineLsn implements View.OnClickListener{
@@ -220,6 +378,25 @@ public class MainActivity extends AppCompatActivity
         public void onClick(View v)
         {
             cardNine.setImageResource(cardsList.get(4));
+            if(countClick == 0)
+            {
+                selected[countClick]=cardsList.get(4);
+                countClick++;
+            }
+            else if(countClick == 1)
+            {
+                selected[countClick] = cardsList.get(4);
+                if(selected[0]==selected[1])
+                {
+                    score += 10;
+                    scoreText.setText(String.valueOf(score));
+                    countClick=0;
+                }
+                else {
+                    countClick = 0;
+                    cardNine.setImageResource(R.drawable.cardback);
+                }
+            }
         }
     }
     private class cardTenLsn implements View.OnClickListener{
@@ -227,6 +404,26 @@ public class MainActivity extends AppCompatActivity
         public void onClick(View v)
         {
             cardTen.setImageResource(dupList.get(4));
+
+            if(countClick == 0)
+            {
+                selected[countClick]=dupList.get(4);
+                countClick++;
+            }
+            else if(countClick == 1)
+            {
+                selected[countClick] = dupList.get(4);
+                if(selected[0]==selected[1])
+                {
+                    score += 10;
+                    scoreText.setText(String.valueOf(score));
+                    countClick=0;
+                }
+                else {
+                    countClick = 0;
+                    cardTen.setImageResource(R.drawable.cardback);
+                }
+            }
         }
     }
     private class cardElevenLsn implements View.OnClickListener{
@@ -234,6 +431,25 @@ public class MainActivity extends AppCompatActivity
         public void onClick(View v)
         {
             cardEleven.setImageResource(cardsList.get(5));
+            if(countClick == 0)
+            {
+                selected[countClick]=cardsList.get(5);
+                countClick++;
+            }
+            else if(countClick == 1)
+            {
+                selected[countClick] = cardsList.get(5);
+                if(selected[0]==selected[1])
+                {
+                    score += 10;
+                    scoreText.setText(String.valueOf(score));
+                    countClick=0;
+                }
+                else {
+                    countClick = 0;
+                    cardEleven.setImageResource(R.drawable.cardback);
+                }
+            }
         }
     }
     private class cardTwelveLsn implements View.OnClickListener{
@@ -241,6 +457,25 @@ public class MainActivity extends AppCompatActivity
         public void onClick(View v)
         {
             cardTwelve.setImageResource(dupList.get(5));
+            if(countClick == 0)
+            {
+                selected[countClick]=dupList.get(5);
+                countClick++;
+            }
+            else if(countClick == 1)
+            {
+                selected[countClick] = dupList.get(5);
+                if(selected[0]==selected[1])
+                {
+                    score += 10;
+                    scoreText.setText(String.valueOf(score));
+                    countClick=0;
+                }
+                else {
+                    countClick = 0;
+                    cardTwelve.setImageResource(R.drawable.cardback);
+                }
+            }
         }
     }
     private class cardThirteenLsn implements View.OnClickListener{
@@ -248,6 +483,25 @@ public class MainActivity extends AppCompatActivity
         public void onClick(View v)
         {
             cardThirteen.setImageResource(cardsList.get(6));
+            if(countClick == 0)
+            {
+                selected[countClick]=cardsList.get(6);
+                countClick++;
+            }
+            else if(countClick == 1)
+            {
+                selected[countClick] = cardsList.get(6);
+                if(selected[0]==selected[1])
+                {
+                    score += 10;
+                    scoreText.setText(String.valueOf(score));
+                    countClick=0;
+                }
+                else {
+                    countClick = 0;
+                    cardThirteen.setImageResource(R.drawable.cardback);
+                }
+            }
         }
     }
     private class cardFourteenLsn implements View.OnClickListener{
@@ -255,6 +509,25 @@ public class MainActivity extends AppCompatActivity
         public void onClick(View v)
         {
             cardFourteen.setImageResource(dupList.get(6));
+            if(countClick == 0)
+            {
+                selected[countClick]=dupList.get(6);
+                countClick++;
+            }
+            else if(countClick == 1)
+            {
+                selected[countClick] = dupList.get(6);
+                if(selected[0]==selected[1])
+                {
+                    score += 10;
+                    scoreText.setText(String.valueOf(score));
+                    countClick=0;
+                }
+                else {
+                    countClick = 0;
+                    cardFourteen.setImageResource(R.drawable.cardback);
+                }
+            }
         }
     }
     private class cardFifteenLsn implements View.OnClickListener{
@@ -262,6 +535,25 @@ public class MainActivity extends AppCompatActivity
         public void onClick(View v)
         {
             cardFifteen.setImageResource(cardsList.get(7));
+            if(countClick == 0)
+            {
+                selected[countClick]=cardsList.get(7);
+                countClick++;
+            }
+            else if(countClick == 1)
+            {
+                selected[countClick] = cardsList.get(7);
+                if(selected[0]==selected[1])
+                {
+                    score += 10;
+                    scoreText.setText(String.valueOf(score));
+                    countClick=0;
+                }
+                else {
+                    countClick = 0;
+                    cardFifteen.setImageResource(R.drawable.cardback);
+                }
+            }
         }
     }
     private class cardSixteenLsn implements View.OnClickListener{
@@ -269,6 +561,25 @@ public class MainActivity extends AppCompatActivity
         public void onClick(View v)
         {
             cardSixteen.setImageResource(dupList.get(7));
+            if(countClick == 0)
+            {
+                selected[countClick]=dupList.get(7);
+                countClick++;
+            }
+            else if(countClick == 1)
+            {
+                selected[countClick] = dupList.get(7);
+                if(selected[0]==selected[1])
+                {
+                    score += 10;
+                    scoreText.setText(String.valueOf(score));
+                    countClick=0;
+                }
+                else {
+                    countClick = 0;
+                    cardSixteen.setImageResource(R.drawable.cardback);
+                }
+            }
         }
     }
 
@@ -294,9 +605,6 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    public void compareCards()
-    {
 
-    }
 
 }
