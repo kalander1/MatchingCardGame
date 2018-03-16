@@ -5,13 +5,15 @@
 
 package com.example.tahasaleem.midterm;
 
+import android.content.DialogInterface;
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import 	android.os.CountDownTimer;
-
 import android.util.Log;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -20,10 +22,7 @@ import android.view.Window;
 import android.widget.Toast;
 import android.widget.ImageView;
 import android.media.Image;
-
-
 import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -58,6 +57,7 @@ public class MainActivity extends AppCompatActivity
     // Alerts
     AlertDialog.Builder playAgain;
 
+    //Text elements
     private TextView scoreText;
     private TextView countDown;
     private TextView pickCardText;
@@ -84,6 +84,10 @@ public class MainActivity extends AppCompatActivity
     ImageButton cardFifteen;
     ImageButton cardSixteen;
 
+    //sound
+    private MediaPlayer buttonClick;
+    private MediaPlayer pointSound;
+    private MediaPlayer timeIsUpSound;
 
     //timer
     final CountDownTimer c = new CountDownTimer(30000, 1000) {
@@ -91,7 +95,7 @@ public class MainActivity extends AppCompatActivity
             countDown.setText("Time remaining: " + millisUntilFinished / 1000);
         }
         public void onFinish(){
-            countDown.setText("Timeout");
+            restartGame();
         }
 
     }.start();
@@ -174,6 +178,10 @@ public class MainActivity extends AppCompatActivity
         loopCards();
         loopDup();
 
+        //Creating the sound
+        buttonClick = MediaPlayer.create(this, R.raw.buttonclick);
+        timeIsUpSound = MediaPlayer.create(this,R.raw.gameover);
+        pointSound = MediaPlayer.create(this, R.raw.point);
     }
 
 
@@ -184,6 +192,7 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void onClick(View v)
         {
+            buttonClick.start();
             if(countClick == 0)
             {
                 selectedImg[countClick]= cardOne;
@@ -204,10 +213,11 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                {
+                   pointSound.start();
                    pickCardText.setText("Correct!");
                    // Remove Image button
                    score += 10;
-                   scoreText.setText(String.valueOf(score));
+                   scoreText.setText("Score: "+String.valueOf(score));
                    selectedImg[0].setVisibility(View.GONE);
                    selectedImg[1].setVisibility(View.GONE);
                    countClick = 0;
@@ -236,7 +246,9 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void onClick(View v)
         {
-          //  cardTwo.setImageResource(cardsList.get(1));
+            buttonClick.start();
+
+            //  cardTwo.setImageResource(cardsList.get(1));
             if(countClick == 0)
             {
                 cardTwo.setImageResource(dupList.get(0));
@@ -257,10 +269,12 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pointSound.start();
+
                     pickCardText.setText("Correct!");
                     // Remove Image button
                     score += 10;
-                    scoreText.setText(String.valueOf(score));
+                    scoreText.setText("Score: "+String.valueOf(score));
                     selectedImg[0].setVisibility(View.GONE);
                     selectedImg[1].setVisibility(View.GONE);
                     countClick = 0;
@@ -288,6 +302,7 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void onClick(View v)
         {
+            buttonClick.start();
 
             if(countClick == 0)
             {
@@ -309,10 +324,12 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pointSound.start();
+
                     pickCardText.setText("Correct!");
                     // Remove Image button
                     score += 10;
-                    scoreText.setText(String.valueOf(score));
+                    scoreText.setText("Score: "+String.valueOf(score));
                     selectedImg[0].setVisibility(View.GONE);
                     selectedImg[1].setVisibility(View.GONE);
                     countClick = 0;
@@ -340,6 +357,8 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void onClick(View v)
         {
+            buttonClick.start();
+
             if(countClick == 0)
             {
                 selectedImg[countClick]= cardFour;
@@ -360,10 +379,12 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pointSound.start();
+
                     pickCardText.setText("Correct!");
                     // Remove Image button
                     score += 10;
-                    scoreText.setText(String.valueOf(score));
+                    scoreText.setText("Score: "+String.valueOf(score));
                     selectedImg[0].setVisibility(View.GONE);
                     selectedImg[1].setVisibility(View.GONE);
                     countClick = 0;
@@ -391,6 +412,8 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void onClick(View v)
         {
+            buttonClick.start();
+
             if(countClick == 0)
             {
                 cardFive.setImageResource(cardsList.get(2));
@@ -411,10 +434,12 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pointSound.start();
+
                     pickCardText.setText("Correct!");
                     // Remove Image button
                     score += 10;
-                    scoreText.setText(String.valueOf(score));
+                    scoreText.setText("Score: "+String.valueOf(score));
                     selectedImg[0].setVisibility(View.GONE);
                     selectedImg[1].setVisibility(View.GONE);
                     countClick = 0;
@@ -441,6 +466,8 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void onClick(View v)
         {
+            buttonClick.start();
+
             if(countClick == 0)
             {
                 cardSix.setImageResource(dupList.get(2));
@@ -461,10 +488,12 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pointSound.start();
+
                     pickCardText.setText("Correct!");
                     // Remove Image button
                     score += 10;
-                    scoreText.setText(String.valueOf(score));
+                    scoreText.setText("Score: "+String.valueOf(score));
                     selectedImg[0].setVisibility(View.GONE);
                     selectedImg[1].setVisibility(View.GONE);
                     countClick = 0;
@@ -491,6 +520,8 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void onClick(View v)
         {
+            buttonClick.start();
+
             if(countClick == 0)
             {
                 selectedImg[countClick]= cardSeven;
@@ -511,10 +542,12 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pointSound.start();
+
                     pickCardText.setText("Correct!");
                     // Remove Image button
                     score += 10;
-                    scoreText.setText(String.valueOf(score));
+                    scoreText.setText("Score: "+String.valueOf(score));
                     selectedImg[0].setVisibility(View.GONE);
                     selectedImg[1].setVisibility(View.GONE);
                     countClick = 0;
@@ -541,6 +574,8 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void onClick(View v)
         {
+            buttonClick.start();
+
             if(countClick == 0)
             {
                 cardEight.setImageResource(dupList.get(3));
@@ -561,10 +596,12 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pointSound.start();
+
                     pickCardText.setText("Correct!");
                     // Remove Image button
                     score += 10;
-                    scoreText.setText(String.valueOf(score));
+                    scoreText.setText("Score: "+String.valueOf(score));
                     selectedImg[0].setVisibility(View.GONE);
                     selectedImg[1].setVisibility(View.GONE);
                     countClick = 0;
@@ -591,6 +628,8 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void onClick(View v)
         {
+            buttonClick.start();
+
             if(countClick == 0)
             {
                 cardNine.setImageResource(cardsList.get(4));
@@ -602,6 +641,7 @@ public class MainActivity extends AppCompatActivity
                 pickCardText.setText("Pick Another Card!");
 
             }
+
             else if(countClick == 1)
             {
 
@@ -612,10 +652,12 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pointSound.start();
+
                     pickCardText.setText("Correct!");
                     // Remove Image button
                     score += 10;
-                    scoreText.setText(String.valueOf(score));
+                    scoreText.setText("Score: "+String.valueOf(score));
                     selectedImg[0].setVisibility(View.GONE);
                     selectedImg[1].setVisibility(View.GONE);
                     countClick = 0;
@@ -642,6 +684,7 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void onClick(View v)
         {
+            buttonClick.start();
 
             if(countClick == 0)
             {
@@ -663,9 +706,11 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pointSound.start();
+
                     pickCardText.setText("Correct!");
                     score += 10;
-                    scoreText.setText(String.valueOf(score));
+                    scoreText.setText("Score: "+String.valueOf(score));
                     selectedImg[0].setVisibility(View.GONE);
                     selectedImg[1].setVisibility(View.GONE);
                     countClick = 0;
@@ -693,6 +738,8 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void onClick(View v)
         {
+            buttonClick.start();
+
             if(countClick == 0)
             {
                 cardEleven.setImageResource(cardsList.get(5));
@@ -713,10 +760,12 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pointSound.start();
+
                     pickCardText.setText("Correct!");
                     // Remove Image button
                     score += 10;
-                    scoreText.setText(String.valueOf(score));
+                    scoreText.setText("Score: "+String.valueOf(score));
                     selectedImg[0].setVisibility(View.GONE);
                     selectedImg[1].setVisibility(View.GONE);
                     countClick = 0;
@@ -743,6 +792,8 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void onClick(View v)
         {
+            buttonClick.start();
+
             if(countClick == 0)
             {
                 selectedImg[countClick]= cardTwelve;
@@ -763,10 +814,12 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pointSound.start();
+
                     pickCardText.setText("Correct!");
                     // Remove Image button
                     score += 10;
-                    scoreText.setText(String.valueOf(score));
+                    scoreText.setText("Score: "+String.valueOf(score));
                     selectedImg[0].setVisibility(View.GONE);
                     selectedImg[1].setVisibility(View.GONE);
                     countClick = 0;
@@ -793,6 +846,8 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void onClick(View v)
         {
+            buttonClick.start();
+
             if(countClick == 0)
             {
                 cardThirteen.setImageResource(cardsList.get(6));
@@ -813,10 +868,12 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pointSound.start();
+
                     pickCardText.setText("Correct!");
                     // Remove Image button
                     score += 10;
-                    scoreText.setText(String.valueOf(score));
+                    scoreText.setText("Score: "+String.valueOf(score));
                     selectedImg[0].setVisibility(View.GONE);
                     selectedImg[1].setVisibility(View.GONE);
                     countClick = 0;
@@ -843,6 +900,8 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void onClick(View v)
         {
+            buttonClick.start();
+
             if(countClick == 0)
             {
                 cardFourteen.setImageResource(dupList.get(6));
@@ -863,10 +922,12 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pointSound.start();
+
                     pickCardText.setText("Correct!");
                     // Remove Image button
                     score += 10;
-                    scoreText.setText(String.valueOf(score));
+                    scoreText.setText("Score: "+String.valueOf(score));
                     selectedImg[0].setVisibility(View.GONE);
                     selectedImg[1].setVisibility(View.GONE);
                     countClick = 0;
@@ -893,6 +954,8 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void onClick(View v)
         {
+            buttonClick.start();
+
             if(countClick == 0)
             {
                 cardFifteen.setImageResource(cardsList.get(7));
@@ -913,10 +976,12 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pointSound.start();
+
                     pickCardText.setText("Correct!");
                     // Remove Image button
                     score += 10;
-                    scoreText.setText(String.valueOf(score));
+                    scoreText.setText("Score: "+String.valueOf(score));
                     selectedImg[0].setVisibility(View.GONE);
                     selectedImg[1].setVisibility(View.GONE);
                     countClick = 0;
@@ -943,6 +1008,8 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void onClick(View v)
         {
+            buttonClick.start();
+
             if(countClick == 0)
             {
                 cardSixteen.setImageResource(dupList.get(7));
@@ -963,10 +1030,12 @@ public class MainActivity extends AppCompatActivity
 
                 if(selected[0]==selected[1])
                 {
+                    pointSound.start();
+
                     pickCardText.setText("Correct!");
                     // Remove Image button
                     score += 10;
-                    scoreText.setText(String.valueOf(score));
+                    scoreText.setText("Score: "+String.valueOf(score));
                     selectedImg[0].setVisibility(View.GONE);
                     selectedImg[1].setVisibility(View.GONE);
                     countClick = 0;
@@ -1001,7 +1070,7 @@ public class MainActivity extends AppCompatActivity
         Collections.shuffle(cardsList);
     }
 
-    // Shuffles the 8 seleceted cards and duplicates them into a second list
+    // Shuffles the 8 selected cards and duplicates them into a second list
     public void loopDup()
     {
         for(int x=0; x<8;x++)
@@ -1032,4 +1101,19 @@ public class MainActivity extends AppCompatActivity
         cardSixteen.setImageResource(R.drawable.cardback);
     }*/
 
+
+   public void restartGame(){
+                timeIsUpSound.start();
+               playAgain = new AlertDialog.Builder(this);
+               playAgain.setTitle("You Lose!");
+               playAgain.setMessage("Would you like to play again?");
+               playAgain.setPositiveButton("Restart Game?", new DialogInterface.OnClickListener() {
+                   @Override
+                   public void onClick(DialogInterface dialogInterface, int i) {
+                      recreate();
+                   }
+               });
+               playAgain.show();
+
+   }
 }
