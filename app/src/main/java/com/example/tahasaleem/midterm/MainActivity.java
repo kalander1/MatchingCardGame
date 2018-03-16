@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity
             countDown.setText("Time remaining: " + millisUntilFinished / 1000);
         }
         public void onFinish(){
+            timeIsUpSound.start();
             restartGame();
         }
 
@@ -1103,7 +1104,7 @@ public class MainActivity extends AppCompatActivity
 
 
    public void restartGame(){
-                timeIsUpSound.start();
+
                playAgain = new AlertDialog.Builder(this);
                playAgain.setTitle("You Lose!");
                playAgain.setMessage("Would you like to play again?");
