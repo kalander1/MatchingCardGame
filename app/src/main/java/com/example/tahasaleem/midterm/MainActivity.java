@@ -1,6 +1,7 @@
 /*
 *  Andre Reano 101075780
 *  Taha Saleem 100803048
+*  Main activity java created on March 12, 2018
 * */
 
 package com.example.tahasaleem.midterm;
